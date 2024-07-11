@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: lightpink;
+            height: 70px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            padding: 0 15px;
+        }
+
+        li:hover {
+            background-color: aliceblue;
+        }
+
+        a {
+            text-decoration: none;
+            color: purple;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        main {
+            height: 500px;
+            background-color: beige;
+        }
+
+        footer {
+            background-color: cornflowerblue;
+        }
+
+        .tab-button {
+            cursor: pointer;
+        }
+
+        .tab-content {
+            border: 1px solid;
+            display: none;
+            background-color: aliceblue;
+        }
+
+        .tab-button.active {
+            background-color: pink;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">LoGo</a>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="project.html">Projact</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="github.html">Github</a></li>
+            </ul>
+        </div>
+
+        <div class="icons">
+            <ul>
+                <li><a href="#">아이콘</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <h2>배운 프로젝트 코드</h2>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'tab1')">탭 1</button>
+            <button class="tab-button" onclick="openTab(event, 'tab2')">탭 2</button>
+            <button class="tab-button" onclick="openTab(event, 'tab3')">탭 3</button>
+        </div>
+        <div id="tab1" class="tab-content">
+            <h3>탭 버튼 만들기</h3>
+            <pre>
+
+                탭을 선택하여 원하는 페이지를 볼 수 있는 코드
+
+            </pre>
+        </div>
+        <div id="tab2" class="tab-content">
+            <h3>Todo 리스트</h3>
+            <pre>
+
+                원하는 내용을 입력해서 추가하고 삭제하는 코드   
+
+            </pre>
+        </div>
+        <div id="tab3" class="tab-content">
+            <h3>다크 모드</h3>
+            <pre>
+
+                버튼을 눌러 배경과 페이지가 색이 달라지게 하는 코드
+                    
+            </pre>
+        </div>
+    </main>
+    <footer>하단 부분</footer>
+</body>
+
+<script>
+    document.getElementById('tab1').style.display = 'block';
+
+    function openTab(evt, tabName) {
+        const tabContents = document.querySelectorAll(".tab-content");
+        for (const content of tabContents) {
+            content.style.display = 'none';
+        }
+
+        const tabButtons = document.querySelectorAll(".tab-content");
+        for (const button of tabButtons) {
+            button.classList.remove('active');
+        }
+
+        document.getElementById(tabName).style.display = 'block';
+        evt.currentTarget.classList.add('active')
+    }
+</script>
+
+</html>
